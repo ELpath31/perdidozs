@@ -5,32 +5,38 @@
     box-sizing: border-box;
 }
 
-/* Fondo general */
+/* Scroll suave */
 html {
     scroll-behavior: smooth;
 }
 
+/* Fondo general */
 body {
-    background-color: black;
+    background-color: #000;
     font-family: Arial, sans-serif;
     color: #ffffff;
 }
 
-/* Sección principal con logo centrado */
+/* HERO */
 .hero-inicio {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 70px; /* altura del header fijo */
+    padding-top: 70px; /* espacio por header fijo */
 }
 
 .hero-logo {
     max-width: 60%;
     height: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Secciones inferiores (Música, Tienda, Contacto) */
+.hero-logo:hover {
+    transform: scale(1.05);
+}
+
+/* SECCIONES */
 .section {
     padding: 80px 40px;
 }
@@ -49,13 +55,15 @@ body {
     display: flex;
     gap: 32px;
     align-items: center;
+    flex-wrap: wrap; /* 🔥 responsive */
 }
 
+/* 🔥 AQUÍ ESTABA EL ERROR */
 .musica-cover {
     width: 260px;
     height: 260px;
     border-radius: 4px;
-    background-image: url("/Alb.png");
+    background-image: url("Alb.png"); /* ✅ sin / */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -85,6 +93,7 @@ body {
     margin-bottom: 16px;
 }
 
+/* BOTONES */
 .musica-links {
     display: flex;
     flex-wrap: wrap;
@@ -100,6 +109,7 @@ body {
     font-size: 11px;
     text-decoration: none;
     color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .pill-spotify { border-color: #1db954; }
@@ -143,6 +153,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 16px;
     border-radius: 4px;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.tienda-item:hover {
+    transform: translateY(-5px);
+    border-color: #f5c143;
 }
 
 .tienda-item h3 {
@@ -166,14 +182,14 @@ body {
     margin-bottom: 8px;
 }
 
-/* Header principal tipo banda rock */
+/* HEADER */
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 70px;
-    background-color: black;
+    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -182,14 +198,14 @@ body {
     z-index: 10;
 }
 
-/* Logo */
+/* LOGO */
 .logotipo img {
     height: 40px;
     width: auto;
     display: block;
 }
 
-/* Menú central */
+/* NAV */
 .main-nav {
     display: flex;
     gap: 24px;
@@ -201,13 +217,14 @@ body {
 .main-nav a {
     color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .main-nav a:hover {
     color: #840d0d;
 }
 
-/* Acceso / Unirse a la derecha */
+/* HEADER ACCIONES */
 .header-actions {
     display: flex;
     align-items: center;
@@ -229,6 +246,7 @@ body {
     color: #000;
     text-decoration: none;
     font-weight: bold;
+    transition: background 0.3s ease;
 }
 
 .header-button:hover {
